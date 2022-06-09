@@ -13,4 +13,7 @@ export class CategoryService {
   getCategories (): Observable<Category[]> {
     return this.http.get<Category[]>(environment.categories);
   }
+  getCategory (id : string): Observable<Category> {
+    return this.http.get<Category>(`${environment.category}/${id}`);
+  }
 }

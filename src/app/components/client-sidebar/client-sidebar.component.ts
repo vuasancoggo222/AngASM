@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Category } from 'src/app/types/Products';
 
 @Component({
@@ -8,11 +8,15 @@ import { Category } from 'src/app/types/Products';
 })
 export class ClientSidebarComponent implements OnInit {
   @Input('categories') categories: Category[]
+  @Output() handleGetCategory: EventEmitter<any>
   constructor() {
     this.categories = []
+    this.handleGetCategory = new EventEmitter()
    }
 
   ngOnInit(): void {  
   }
-
+  onGetCategory(id: string){
+    this.handleGetCategory.emit(id)
+  }
 }

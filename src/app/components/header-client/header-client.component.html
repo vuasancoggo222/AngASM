@@ -10,20 +10,21 @@
         </button>
       </form>
       <form action="" class="ml-[30px]">
-        <div id="auth">
+         <div *ngIf="user" id="welcome_user">
           <a routerLink="" class="text-2xl text-white "><i class="fas fa-user"></i></a>
-          <a routerLink="/sign-in" id="signin" class="text-white text-sm">Đăng nhập/</a>
-          <a routerLink="/sign-up" id="sinup" class="text-white text-sm">Đăng ký</a>
+          <a routerLink="" id="username" class="text-white text-sm">{{user.user.name}}</a>
+          <a routerLink="" id="logout" (click)="onLogOut()" class="text-white text-sm"> | Đăng xuất</a>
         </div>
-        <div id="welcome_user" style="display:none">
-        <a routerLink="" class="text-2xl text-white "><i class="fas fa-user"></i></a>
-        <a routerLink="" id="username" class="text-white text-sm"></a>
-        <a routerLink="" id="logout" class="text-white text-sm">/ Đăng xuất</a>
-      </div>
+          <div *ngIf="!user" id="auth">
+          <a routerLink="" class="text-2xl text-white "><i class="fas fa-user"></i></a>
+          <a routerLink="/sign-in" id="signin" class="text-white text-sm">Đăng nhập | </a>
+          <a routerLink="/sign-up" id="sinup" class="text-white text-sm">Đăng ký</a>
+        </div> 
       </form>
       <div class="mr-[25px]">
         <a routerLink="/cart" class="text-2xl text-white ml-3 mr-1"><i class="fas fa-shopping-cart"></i></a>
         <a routerLink="/cart" class="text-white text-sm">Giỏ hàng</a>
       </div>
     </div>
+    
   </header>

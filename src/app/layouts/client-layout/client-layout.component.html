@@ -1,11 +1,11 @@
 <app-header-client></app-header-client>
-<app-navigation-client></app-navigation-client>
+<!-- <app-navigation-client></app-navigation-client> -->
 <div class="app-main grid grid-cols-[250px_minmax(900px,_1fr)] gap-[20px]">
     <div>
-        <app-client-sidebar [categories]="categories"></app-client-sidebar>
+        <app-client-sidebar (handleGetCategory)="onGetCategory($event)" [categories]="categories"></app-client-sidebar>
     </div>
    <div>
-    <router-outlet></router-outlet>
+    <router-outlet category="[category]"></router-outlet>
    </div>
 </div>
 <app-footer></app-footer>

@@ -18,10 +18,18 @@ import { NavigationClientComponent } from './components/navigation-client/naviga
 import { FooterComponent } from './components/footer/footer.component';
 import { SignInComponent } from './pages/signin/signin.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { ClientSidebarComponent } from './components/client-sidebar/client-sidebar.component';
 import 'flowbite';
 import { ProductCardComponent } from './components/product-card/product-card.component'
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { CategoryProductComponent } from './pages/category-product/category-product.component';
+import { CartComponent } from './pages/cart/cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,16 +45,23 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     FooterComponent,
     SignInComponent,
     SignUpComponent,
-    ProductsPageComponent,
     ClientSidebarComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductDetailComponent,
+    SkeletonLoaderComponent,
+    LoadingComponent,
+    CategoryProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // FormsModule được sử dụng ở các component đã có bên trên
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

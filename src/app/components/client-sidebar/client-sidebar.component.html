@@ -10,7 +10,7 @@
     </button>
     <ul id="dropdown-example" class="hidden py-2 space-y-2">
     <li *ngFor="let category of categories">
-    <a routerLink="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{category.name}}</a>
+    <a routerLink="/category/{{category._id}}" (click)="onGetCategory(category._id)" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{category.name}}</a>
     </li>
     </ul>
     </li>

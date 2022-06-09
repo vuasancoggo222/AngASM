@@ -1,0 +1,38 @@
+<section class="text-gray-700 body-font overflow-hidden bg-white">
+    <div class="container px-5 py-24 mx-auto">
+        <span class="ml-[125px] relative bottom-[35px]"><a class="hover:underline"routerLink="">Trang chủ </a> / {{product.name}}</span>
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="{{product.image}}">
+        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <h2 class="text-sm title-font text-gray-500 tracking-widest">{{product.category_id.name}}</h2>
+          <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{product.name}}</h1>
+          <h1 class="text-gray-900 text-2xl title-font font-medium mb-1 line-through">{{product.price | currency: "VND"}}</h1>
+          <h1 class="text-red-900 text-3xl title-font font-medium mb-1">{{product.price - product.sale_price | currency: "VND"}}</h1>
+          <div class="flex mb-4">
+
+          </div>
+          <p class="leading-relaxed">.</p>
+          <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+            <div class="flex">
+            <input type="number" id="inputValue" [value]="cartItemValue"
+            (input)="onInputValueChange($event)" class=" pl-2 w-[65px] border border-black" min="0" value="1"/>
+            </div>
+            <div class="flex ml-6 items-center">
+              <div class="relative">
+              
+              </div>
+            </div>
+            
+          </div>
+          <p class="text-sm text-gray-500 tracking-widest mb-[25px]">{{product.description}}</p>
+          <div class="flex">
+            <span *ngIf="product.status" class="title-font font-medium text-2xl text-green-900">Còn Hàng</span>
+            <span *ngIf="!product.status" class="title-font font-medium text-2xl text-red-900">Hết Hàng</span>
+            <button id="btnAddTocart" (click)="onAddToCart()" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Add to cart</button>
+
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    </section>
