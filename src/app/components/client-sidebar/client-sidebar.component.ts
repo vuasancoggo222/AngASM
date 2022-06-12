@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CategoryService } from 'src/app/service/category.service';
+import { SharedService } from 'src/app/service/shared.service';
 import { Category } from 'src/app/types/Products';
 
 @Component({
@@ -7,16 +9,19 @@ import { Category } from 'src/app/types/Products';
   styleUrls: ['./client-sidebar.component.css']
 })
 export class ClientSidebarComponent implements OnInit {
-  @Input('categories') categories: Category[]
-  @Output() handleGetCategory: EventEmitter<any>
-  constructor() {
-    this.categories = []
-    this.handleGetCategory = new EventEmitter()
+  @Input('categories') categories: Category []
+  category : any
+  constructor(private sharedService : SharedService,private categoryService: CategoryService) {
+    this.categories = [],
+    this.category = {}
    }
-
-  ngOnInit(): void {  
+  ngOnInit(): void {
+ 
   }
   onGetCategory(id: string){
-    this.handleGetCategory.emit(id)
+    this.categoryService.getCategory(id).subscribe(data => {
+      this.category = data;
+      this.sharedService.sentMess(this.category)
+    })
   }
 }

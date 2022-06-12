@@ -37,6 +37,18 @@ export class CartComponent implements OnInit {
        timeOut : 500
      })
     }
+  }
+  increaseQuantity(id : string){
+    console.log(id);
+    const increaseQuantity:any = this.cartItems.find(item => item._id === id)
+     increaseQuantity.value++
     
+  }
+  decreaseQuantity(id:string){
+    const increaseQuantity:any = this.cartItems.find(item => item._id === id)
+     increaseQuantity.value--
+    if(this.cartItems[0].value < 1){
+      this.removeProduct(id)
+    }
   }
 }

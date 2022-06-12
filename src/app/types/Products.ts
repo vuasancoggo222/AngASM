@@ -14,7 +14,14 @@ export type Category = {
    status : boolean,
 }
   export type ProductCreate = {
-    name: string
+    _id: string,
+    name: string,
+    image : string,
+    sale_price : number,
+    price : number,
+    description: string,
+    status: boolean,
+    category_id : any,
   };
   export type ProductCart = {
     image: string,

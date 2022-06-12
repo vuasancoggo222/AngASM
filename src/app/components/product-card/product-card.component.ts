@@ -23,6 +23,5 @@ export class ProductCardComponent implements OnInit {
     this.category = ''
   }
   ngOnInit(): void {
-    console.log(this.product.category_id.name);
   }
 }

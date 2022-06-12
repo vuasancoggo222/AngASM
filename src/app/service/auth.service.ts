@@ -13,4 +13,13 @@ export class AuthService {
   signin(data: TypeLoginRequest): Observable<TypeLoginResponse> {
     return this.http.post<TypeLoginResponse>(environment.signin,data)
   }
+  signup(data: TypeLoginRequest): Observable<TypeLoginResponse> {
+    return this.http.post<TypeLoginResponse>(environment.signup,data)
+  }
+  getUsers(): Observable<any>{
+    return this.http.get<any>(environment.users)
+  }
+  deleteUsers(id: string): Observable<any>{
+    return this.http.delete<any>(`${environment.users}/${id}`)
+  }
 }

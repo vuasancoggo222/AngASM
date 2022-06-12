@@ -29,6 +29,10 @@ import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-l
 import { LoadingComponent } from './components/loading/loading.component';
 import { CategoryProductComponent } from './pages/category-product/category-product.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category-list/admin-category-list.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/admin-category-form.component';
+import { AdminUsersListComponent } from './pages/admin/admin-users-list/admin-users-list.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,10 @@ import { CartComponent } from './pages/cart/cart.component';
     LoadingComponent,
     CategoryProductComponent,
     CartComponent,
+    AdminNavComponent,
+    AdminCategoryListComponent,
+    AdminCategoryFormComponent,
+    AdminUsersListComponent,
   ],
   imports: [
     BrowserModule,

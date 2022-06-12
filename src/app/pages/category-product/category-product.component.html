@@ -1,1 +1,8 @@
-<p>{{category | json}}</p>
+
+  <div class="grid grid-cols-3">
+    <div *ngFor="let product of category._value.product">
+        <app-product-card [product]="product"></app-product-card>
+   </div>
+  </div>
+
+

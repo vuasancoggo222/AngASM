@@ -1,28 +1,34 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="">Name</label>
-      <!-- Định nghĩa thuộc tính để lắng nghe input -->
-      <input
-        type="text"
-        class="form-control"
-        formControlName="name"
-      >
-      <!-- <input type="text" class="form-control" formControlName="price"> -->
-      <!-- <div>
-        <span *ngIf="(productForm.get('name')?.dirty || productForm.get('name')?.touched) && productForm.get('name')?.errors?.['required']">
-          Tên sp không được để trống
-        </span>
-      </div> -->
-      <!-- productForm.get('tên thuộc tính = new FormGroup()') sẽ là kết quả khi lắng nghe -->
-      <!-- <app-show-validate
-        [field]="productForm.get('name')"
-        key="Tên sản phẩm"
-      ></app-show-validate> -->
-    </div>
-    <div>
-      <button
-        class="btn btn-success"
-        [disabled]="!productForm.valid"
-      >Submit</button>
-    </div>
+  
+<form  [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="grid grid-cols-2 gap-4 mt-[25px]">
+    <div class="mb-6">
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên Sản Phẩm</label>
+      <input formControlName="name" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required="">
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Giá</label>
+        <input formControlName="price" type="number" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required="">
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Giảm giá</label>
+          <input formControlName="sale_price" type="number" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required="">
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mô tả</label>
+            <textarea formControlName="description"  id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required=""></textarea>
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link ảnh</label>
+              <input formControlName="image" type="text" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required="">
+              </div>
+              <div>
+                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Danh mục</label>
+                <select formControlName="category_id" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option disabled selected>Vui lòng chọn danh mục</option>
+                  <option *ngFor="let category of categories" value="{{category._id}}">{{category.name}}</option>
+                </select>
+              </div>
+  </div>
+  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
   </form>
+  

@@ -32,6 +32,8 @@ export class SignInComponent implements OnInit {
       this.toastr.success('','Đăng nhập thành công !',{
         timeOut: 1000
       })
+    },err =>{
+      this.toastr.error(err.error.message)
     }
     );
   }

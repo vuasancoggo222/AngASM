@@ -3,9 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CanAccessAdminGuard } from './guards/can-access-admin-guard.guard';
 import { AdminLayoutsComponent } from './layouts/admin-layouts/admin-layouts.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category-form/admin-category-form.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category-list/admin-category-list.component';
 import { AdminProductDetailComponent } from './pages/admin/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product-list/admin-product-list.component';
+import { AdminUsersListComponent } from './pages/admin/admin-users-list/admin-users-list.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CategoryProductComponent } from './pages/category-product/category-product.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -60,6 +63,27 @@ const routes: Routes = [
             component: AdminProductDetailComponent
           },
         ]
+      },
+      {
+        path: 'category',
+        children: [
+          {
+            path: '',
+            component: AdminCategoryListComponent
+          },
+          {
+            path: 'create',
+            component: AdminCategoryFormComponent
+          },
+           {
+            path: 'edit/:id',
+            component: AdminCategoryFormComponent
+          }
+        ]
+      },
+      {
+        path: 'users',
+        component: AdminUsersListComponent
       }
     ]
   },
